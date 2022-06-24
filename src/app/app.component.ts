@@ -44,7 +44,6 @@ export class AppComponent {
   
   public onDirectionChange(event: any){
 
-    // console.log(event);
     if(
       this.origin.lat === event.request.origin.location.lat() &&
       this.origin.lng === event.request.origin.location.lng() &&
@@ -60,10 +59,8 @@ export class AppComponent {
     this.destination = { lat: event.request.destination.location.lat(), lng: event.request.destination.location.lng() };
 
     this.route = event.routes[0].overview_path;
-    
-    // this.activeStep = this.steps[0];
-      // console.log(this.marker);      
-      if(this.marker['marker']) {
+
+    if(this.marker['marker']) {
         // this.marker.setMap(null);
         this.marker['marker']['path'] = [];  
         setTimeout(() => {
@@ -76,7 +73,6 @@ export class AppComponent {
         this.marker.addLocation(this.route);
         this.marker.play()
       }
-      // this.activeStep = this.steps[1];
 
       console.log(this.marker);
       if(this.isFirst) this.marker.event.onEvent((event: EventType, data: TravelData) => {
@@ -84,14 +80,14 @@ export class AppComponent {
         console.log(data);
         switch (event) {
           case 'reset':
-            this.activeStep = this.steps[0];
+            this.activeStep = 'package at warehouse';
             break;
           case 'play':
           case 'checkpoint':
-            this.activeStep = this.steps[1];
+            this.activeStep = 'package sent from store';
             break;
           case 'finished':
-            this.activeStep = this.steps[2];
+            this.activeStep = 'package arrived to destination';
             break;
           default:
             break;
@@ -120,8 +116,6 @@ export class AppComponent {
       },
     };
     this.marker = new TravelMarker(options);
-    
-    // setTimeout(() => this.marker.play(), 1000);
   }
 
   onCourierChange(courier: any): void {
@@ -134,6 +128,5 @@ export class AppComponent {
     };
     this.marker.setMarkerOptions({ icon });
   }
-
 
 }

@@ -9,32 +9,22 @@ h1 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 50px
+  gap: 50px;
+  position: relative;
+}
+.ng-select {
+  margin-bottom: 2rem;
 }
 agm-map {
   height: 500px;
   border-radius: 10px;
 }
-* {
-  font-family: Lato;
-  margin: 0;
-  padding: 0;
-}
 .controls {
   position: absolute;
   z-index: 999;
-  top: 120px;
+  top: 140px;
   left: 60px;
   border-radius: 10px;
-  p {
-    background-color: #404040;
-    color: white;
-    padding: .5rem;
-    font-size: 16px;
-    &.active-step {
-      background-color: #e75480;
-    }
-  }
 }
 .form-group {
   display: flex;
@@ -49,30 +39,15 @@ agm-map {
     outline: none;
   }
 }
-button {
-  font-size: 14px;
-  background: blue;
+.step {
+  background-color: #404040;
   color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
+  padding: .5rem;
+  font-size: 16px;
 }
-button:hover, button:focus {
-  background: red;
+.active-step {
+  background-color: #e75480;
 }
-.active {
-  background: red;
-}
-.hidden {
-  display: none;
-}
-span {
-  color: red;
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-}
-
 @media (min-width: 992px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
