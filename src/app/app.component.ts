@@ -36,8 +36,8 @@ export class AppComponent {
   storeAddress!: string;
   route: any;
   
-  steps = ['package at warehouse', 'package sent from store', 'package arrived to destination'];
-  activeStep = this.steps[0];
+  steps = [{ label:'package at warehouse', id: 1 }, { label: 'package sent from store', id: 2 }, { label: 'package arrived to destination', id: 3 }];
+  activeStep = 1;
   
   couriers = ['motorcycle', 'car'];
   selectedCourier = this.couriers[0]
@@ -80,14 +80,14 @@ export class AppComponent {
         console.log(data);
         switch (event) {
           case 'reset':
-            this.activeStep = 'package at warehouse';
+            this.activeStep = this.steps[0].id;
             break;
           case 'play':
           case 'checkpoint':
-            this.activeStep = 'package sent from store';
+            this.activeStep = this.steps[1].id;
             break;
           case 'finished':
-            this.activeStep = 'package arrived to destination';
+            this.activeStep = this.steps[2].id;
             break;
           default:
             break;

@@ -17,7 +17,7 @@
       <ng-select [(ngModel)]="selectedCourier" id="courier" [searchable]="false" [clearable]="false" (change)="onCourierChange($event)">
         <ng-option *ngFor="let courier of couriers">{{ courier }}</ng-option>
      </ng-select>
-     <div class="step" *ngFor="let step of steps" [ngClass]=" activeStep === step ? 'active-step' : ''">{{ step }}</div>
+     <div class="step" *ngFor="let step of steps" [ngClass]=" activeStep === step.id ? 'active-step' : ''">{{ step.label }}</div>
     </div>
   </div>
 </section>
