@@ -1,8 +1,10 @@
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AgmDirectionModule } from 'agm-direction';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -10,10 +12,14 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCUtR6xsw65K5rbdhrTRN4yaaMgt0VVhiU' }),
-
+    AgmCoreModule.forRoot({ 
+      apiKey: 'AIzaSyAiOuKxmO0fR-azjwFPGiff04CtB15WIWQ', }),
+    AgmDirectionModule,
+    FormsModule,
+    NgSelectModule,
+    
   ],
-  providers: [],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
